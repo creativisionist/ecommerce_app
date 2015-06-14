@@ -12,6 +12,9 @@ class ProductsController < ApplicationController
     if params[:discount]
       @products = @products.where("price < ?", 10)
     end
+    if params[:category]
+      @products = Category.find_by(name: params[:category]).products
+    end
       #localhost:3000/products?sort=price&sort_order=desc or asc (user must input)
       #Product.order("price" => "desc")
       #Product.order(price: :desc) same as Product.order(:price => :desc)
