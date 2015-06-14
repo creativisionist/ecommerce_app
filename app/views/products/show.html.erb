@@ -4,7 +4,7 @@
   <h3>Price: <%= @product.price %> Bananas</h3>
   <h4>Brought to you by: <%= @product.supplier.name %></h4>
   <% @product.product_images.each do |product| %>
-    <img src="<%= product.image_url %>">
+    <%= image_tag product.image_url %>
   <% end %>
   <p><%= @product.description %></p>
 </div>
