@@ -1,6 +1,3 @@
-User.create!([
-  {email: "creativisionist@gmail.com", encrypted_password: "$2a$10$zCN1u.XZFEnnADhYkRqHvuuP71jnBnvi7BHImz5d0Mz10iDpqZACW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 8, current_sign_in_at: "2015-06-11 23:55:02", last_sign_in_at: "2015-06-11 02:29:10", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
-])
 CategorizedProduct.create!([
   {product_id: 1, category_id: 1},
   {product_id: 2, category_id: 1},
