@@ -1,4 +1,4 @@
-class AddProductIDtoOrders < ActiveRecord::Migration
+class AddProductIdToOrders < ActiveRecord::Migration
   def change
     add_column :orders, :product_id, :integer
   end
