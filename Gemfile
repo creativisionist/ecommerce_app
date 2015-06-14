@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'pg', group: :production, '0.18.2'
-gem 'rails_12factor', group: :production, '0.0.3'
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 # Use Unicorn as the app server
 # gem 'unicorn'
