@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %> </title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img alt="Brand" src="https://m1.behance.net/rendition/pm/14043009/disp/afc6fd98d4a108e51f8a1ca0a7e95347.jpg"></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-center">
+        <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user != nil %></li>
+        <li><%= link_to "Sign In", "/users/sign_in" unless current_user %></li>
+        <li><a href="">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sort <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/products?sort=price&sort_order=desc">Sort by Highest Price</a></li>
+            <li><a href="/products?sort=price&sort_order=asc">Sort by Lowest Price</a></li>
+            <li><a href="/products/random">Random Product</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+          <li>
+          <%= form_tag "/search", method: :post do%>
+          <%= text_field_tag :search, nil, placeholder: "Search" %>
+          <%= submit_tag "Search", class: "btn btn-default pull-center", type: "submit" %>
+          <% end %>
+          </li>
+        </li>
+      </ul>
+
+
+<!--         </div> -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/products?discount=true">Discount Items</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+<!--     </div> --><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class = "container">
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= message %>
+    </div>
+  <% end %>
+
+
+</div>
+
+  <%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<div class=indminion>
+  <h2><%= @product.name %></h2>
+  <h3><%= @product.sale_message %></h3>
+  <h3>Price: <%= @product.price %> Bananas</h3>
+  <h4>Brought to you by: <%= @product.supplier.name %></h4>
+  <% @product.product_images.each do |product| %>
+    <img src="<%= product.image_url %>">
+  <% end %>
+  <p><%= @product.description %></p>
+</div>
+
+<div class=order>
+  <p>Tax: <%= @product.calculate_tax %> Bananas</p>
+  <p>Total: <%= @product.calculate_total %> Bananas</p>
+</div>
+
+<div class="col-md-1">
+  <div class=edit>
+    <button type="submit" class="btn btn-default"><%= link_to "Edit", "/products/#{@product.id}/edit" %></button>
+  </div>
+</div>
+
+<div class="col-md-1">
+  <div class=delete>
+    <button type="submit" class="btn btn-default"><%= link_to "Delete", "/products/#{@product.id}", method: :delete %></button>
+  </div>
+</div>
+
+<div class=buybutton>
+<%= form_tag '/orders', method: :post do %>
+  <div>
+    <%= label_tag :quanity %>
+    <%= text_field_tag :quantity %>
+  </div>
+  <div>
+    <%= hidden_field_tag :product_id, @product.id %>
+  </div>
+  <%= submit_tag "Buy minion" %>
+  <% end %>
+</div>
+
+

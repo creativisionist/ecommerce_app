@@ -1,0 +1,28 @@
+<h1>Add to the mayhem:</h1>
+
+<%= form_tag '/products', method: :post do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+  </div>
+  <div>
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+  </div>
+  <div>
+    <%= label_tag :image_1 %>
+    <%= text_field_tag :image_1 %>
+  </div>
+  <div>
+    <%= label_tag :image_2 %>
+    <%= text_field_tag :image_2 %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+  <%= submit_tag "Add minion" %>
+
+<% end %>
+<!-- <img src="/assets/minion_home.jpg"> -->
+<%= image_tag "minion_eyes.jpg" %>

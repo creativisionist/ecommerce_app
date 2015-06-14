@@ -1,0 +1,40 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
+
+body {
+  padding-top: 50px;
+}
+
+h2 {
+  color: #FF9E39;
+  padding-top: 25px;
+}
+
+.minions {
+  padding-left: 100px;
+  padding-bottom: 50px;
+}
+
+.indminion, .order {
+  padding-left: 100px;
+}
+
+.container > .alert {
+  margin-top: 50px;
+}
+
+.form-group, .checkbox {
+  padding-left: 100px;
+  padding-right: 300px;
+}
+
+.btn-default {
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
