@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :supplier
   has_many :product_images
   has_many :orders
+  has_many :categorized_products
 
   SALES_TAX = 0.09
 
