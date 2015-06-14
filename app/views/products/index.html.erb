@@ -56,7 +56,7 @@
     <% @products.each do |product| %>
     <h2><%= product.name %></h2>
     <h3>Price: <%= product.price %> Bananas</h3>
-    <img src="<%= product.product_images.first.image_url if product.product_images.first %>">
+    <%= image_tag product.product_images.first.image_url if product.product_images.first %>
     <p><%= product.description %></p>
     <% end %>
   </div>
