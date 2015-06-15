@@ -73,7 +73,8 @@ class ProductsController < ApplicationController
 
   def search
     search_term = params[:search]
-    @products = Product.where("name ILIKE ?", "%#{search_term}%")
+    @products = Product.where("name LIKE ?", "%#{search_term}%") if Rails.env.development? #MySQL Databse
+    @products = Product.where("name ILIKE ?", "%#{search_term}%") if Rails.env.production? #Postgres Database
     render :index
   end
 end
