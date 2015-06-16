@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-4">
+  <div class = minions>
+    <% @carted_product.each do |carted_product| if carted_product.user_id == current_user.id && carted_product.status == "carted" %>
+    <h2><%= @products.find_by(id: carted_product.product_id).product.name %></h2>
+    <h3>Price: <%= product.price %> Bananas</h3>
+    <%= image_tag product.product_images.first.image_url if product.product_images.first %>
+    <p><%= product.description %></p>
+    <% end %>
+  </div>
+  </div>
+</div>
