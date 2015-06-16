@@ -51,17 +51,18 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 col-md-4">
   <div class = minions>
     <% @products.each do |product| %>
-    <h2><%= product.name %></h2>
-    <h3>Price: <%= product.price %> Bananas</h3>
-    <%= image_tag product.product_images.first.image_url if product.product_images.first %>
-    <p><%= product.description %></p>
+      <div class="col-xs-6 col-md-4">
+        <h2><%= product.name %></h2>
+        <h3>Price: <%= product.price %> Bananas</h3>
+        <%= image_tag product.product_images.first.image_url if product.product_images.first %>
+        <p><%= product.description %></p>
+      </div>
     <% end %>
   </div>
-  </div>
 </div>
+
 
 
 <button type="submit" class="btn btn-default"><%= link_to "Add New Minion", "/products/new" %></button>
