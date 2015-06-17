@@ -1,9 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.last
-    @carted_products = CartedProduct.all
-    @products = Product.all
+    @order = Order.find_by(id: params[:id])
   end
 
   def create
