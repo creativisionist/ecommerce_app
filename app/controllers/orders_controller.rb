@@ -5,12 +5,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    quantity = params[:quantity].to_i
-    price = Product.find_by(id: params[:product_id]).price
-    subtotal = quantity * price
-    tax = subtotal * 0.09
-    total = subtotal + tax
-    order = Order.create(quantity: params[:quantity], product_id: params[:product_id], user_id: current_user.id, subtotal: subtotal, tax: tax, total: total)  #remember to put if signed in statement otherwise you'll get the nil statement
-    redirect_to "/orders/#{order.id}"
+    order = Order.create
+    items_to_be_purchased = current_user.carted_products.where(status: "carted")
+    items_to_be_purchased each do |item|
+      item.update(order_id: order.id, status: "purchased")
+    end
+    order.carted_products each do |item|
+      
+    end
   end
 end
