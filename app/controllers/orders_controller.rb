@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
 
   def show
-
+    @order = Order.last
+    @carted_products = CartedProduct.all
+    @products = Product.all
   end
 
   def create
