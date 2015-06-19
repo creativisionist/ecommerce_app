@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_many :products, through: :carted_products
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates :email, presence: :true
+  validates :email, uniqueness: :true
+  validates :password, length: { in: 8..20 }
 end
