@@ -46,8 +46,8 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(id: params[:id], name: params[:name], price: params[:price], description: params[:description])
-    Product_Image.create(product_id: product.id, image_url: params[:image_1]) if params[:image_1] != ""
-    Product_Image.create(product_id: product.id, image_url: params[:image_2]) if params[:image_2] != ""
+    ProductImage.create(product_id: product.id, image_url: params[:image_1]) if params[:image_1] != ""
+    ProductImage.create(product_id: product.id, image_url: params[:image_2]) if params[:image_2] != ""
     flash[:success] = "Banana! You say banana, I say banana, we all go crazy for bananas!"
     redirect_to "/products/#{product.id}"
   end
