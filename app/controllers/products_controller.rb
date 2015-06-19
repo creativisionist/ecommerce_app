@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :search]
+
   def home
   end
 
@@ -43,7 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description])
+    product = Product.create(id: params[:id], name: params[:name], price: params[:price], description: params[:description])
     Product_Image.create(product_id: product.id, image_url: params[:image_1]) if params[:image_1] != ""
     Product_Image.create(product_id: product.id, image_url: params[:image_2]) if params[:image_2] != ""
     flash[:success] = "Banana! You say banana, I say banana, we all go crazy for bananas!"
@@ -76,5 +78,13 @@ class ProductsController < ApplicationController
     @products = Product.where("name LIKE ?", "%#{search_term}%") if Rails.env.development? #MySQL Databse
     @products = Product.where("name ILIKE ?", "%#{search_term}%") if Rails.env.production? #Postgres Database
     render :index
+  end
+end
+
+private
+
+def authenticate_admin!
+  unless user_signed_in? && current_user.admin
+    redirect_to "/"
   end
 end
