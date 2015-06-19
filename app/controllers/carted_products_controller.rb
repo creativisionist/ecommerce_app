@@ -16,4 +16,10 @@ class CartedProductsController < ApplicationController
       render "/products/show"
     end
   end
+
+  def destroy
+    carted_product = CartedProduct.find_by(id: params[:id])
+    carted_product.update(status: "removed")
+    flash[:success] = "Product removed"
+    redirect_to "/carted_products"
 end
