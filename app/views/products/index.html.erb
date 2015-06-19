@@ -54,10 +54,12 @@
   <div class = minions>
     <% @products.each do |product| %>
       <div class="col-xs-6 col-md-4">
+        <a href="/products/<%= product.id %>" title="See Minion">
         <h2><%= product.name %></h2>
         <h3>Price: <%= product.price %> Bananas</h3>
         <%= image_tag product.product_images.first.image_url if product.product_images.first %>
         <p><%= product.description %></p>
+        </a>
       </div>
     <% end %>
   </div>
