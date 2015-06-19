@@ -64,8 +64,9 @@
 </div>
 
 
-
-<button type="submit" class="btn btn-default"><%= link_to "Add New Minion", "/products/new" %></button>
+<% if user_signed_in? && current_user.admin %>
+  <button type="submit" class="btn btn-default"><%= link_to "Add New Minion", "/products/new" %></button>
+<% end %>
 
 <form>
   <div class="form-group">

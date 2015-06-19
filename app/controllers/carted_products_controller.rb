@@ -3,8 +3,12 @@ class CartedProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @carted_product = CartedProduct.all
-    @products = Product.all
+    if user_signed_in? && current_user.carted_products.where(status: "carted").any?
+      @carted_products = current_user.carted_products.where(status: "carted")
+    else
+      flash[:warning] = "You have no items in your shopping cart."
+      redirect_to "/"
+    end
   end
 
   def create
