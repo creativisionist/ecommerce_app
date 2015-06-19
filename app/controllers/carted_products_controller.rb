@@ -1,6 +1,6 @@
 class CartedProductsController < ApplicationController
 
-  before_action :authenticate_user
+  before_action :authenticate_user!
 
   def index
     @carted_product = CartedProduct.all
@@ -22,4 +22,5 @@ class CartedProductsController < ApplicationController
     carted_product.update(status: "removed")
     flash[:success] = "Product removed"
     redirect_to "/carted_products"
+  end
 end
