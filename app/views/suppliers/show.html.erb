@@ -1,0 +1,16 @@
+<div>
+  Name: <%= @supplier.name %>
+</div>
+
+<div>
+  Email: <%= @supplier.email %>
+</div>
+
+<div>
+  Phone: <%= @supplier.phone %>
+</div>
+
+<div>
+  <%= link_to 'Edit', "/suppliers/#{@supplier.id}/edit" %>
+  <%= link_to 'Delete', "/suppliers/#{@supplier.id}", method: :delete %>
+</div>

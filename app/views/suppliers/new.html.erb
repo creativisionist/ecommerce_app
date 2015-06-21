@@ -1,0 +1,24 @@
+<h1>Create New Supplier:</h1>
+
+<%= form_for @supplier do |f| %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div>
+    <%= f.submit 'Submit New Supplier' %>
+  </div>
+
+<% end %>
