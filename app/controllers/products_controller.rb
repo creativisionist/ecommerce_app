@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
 
   def create
 
-    @product = Product.new(name: params[:name], price: params[:price], description: params[:description], supplier_id: 1)
+    @product = Product.new(name: params[:name], price: params[:price], description: params[:description], supplier_id: params[:supplier][:supplier_id])
     if @product.save 
       ProductImage.create(product_id: @product.id, image_url: params[:image_1]) if params[:image_1] != ""
       ProductImage.create(product_id: @product.id, image_url: params[:image_2]) if params[:image_2] != ""
